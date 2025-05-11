@@ -1,0 +1,138 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 100% 25%; /* burgundy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%; /* gothic dark */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gothic-dark text-white font-sans;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif-gothic font-bold mb-8 text-white relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply block w-24 h-1 bg-burgundy mt-4;
+  }
+  
+  .btn-primary {
+    @apply bg-burgundy hover:bg-burgundy-light text-white px-6 py-3 rounded-md transition-colors duration-300 inline-flex items-center gap-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white px-6 py-3 rounded-md transition-colors duration-300;
+  }
+  
+  .input-field {
+    @apply bg-gothic-light border-gothic text-white rounded-md px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-burgundy;
+  }
+  
+  .gothic-divider {
+    @apply relative flex items-center py-8;
+  }
+  
+  .gothic-divider::before, .gothic-divider::after {
+    content: '';
+    @apply flex-grow h-px bg-burgundy/30;
+  }
+  
+  .gothic-divider span {
+    @apply relative mx-4;
+  }
+  
+  .card-portfolio {
+    @apply bg-gothic border border-burgundy/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-burgundy hover:shadow-lg hover:shadow-burgundy/10;
+  }
+  
+  .reveal-item {
+    @apply opacity-0;
+    animation: fade-in 0.8s ease-out forwards;
+    animation-play-state: paused;
+  }
+  
+  .navbar {
+    @apply backdrop-blur-md bg-gothic-dark/90 sticky top-0 z-50 transition-all duration-300;
+  }
+  
+  .navbar.scrolled {
+    @apply shadow-lg shadow-black/20;
+  }
+  
+  .nav-link {
+    @apply relative text-white/80 hover:text-white transition-colors duration-200 px-3 py-2;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-burgundy transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .social-link {
+    @apply text-white/70 hover:text-burgundy transition-colors duration-300;
+  }
+  
+  .progress-bar {
+    @apply h-1.5 bg-burgundy rounded-full;
+  }
+}
